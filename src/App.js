@@ -1,11 +1,13 @@
 import './App.css';
+import ChooseReact from './components/petShop/choosePet';
 
-import ShowUsers from './components/user/showUsers'
+// import ShowUsers from './components/user/showUsers'
 function App() {
 
   return (
     <div className="App">
-      <ShowUsers />
+      {/* <ShowUsers /> */}
+      <ChooseReact />
     </div>
   );
 }
