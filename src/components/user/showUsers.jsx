@@ -1,28 +1,22 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import UserInfo from './userInfoComponent'
-// const userInfoList = [
-//     {
-//         "firstName": "Alireza",
-//         "lastName": "Rostami",
-//         "bio": "He was born in in Iran",
-//         "age": 30
-//     }, {
-//         "firstName": "Johny",
-//         "lastName": "Dep",
-//         "bio": "He was born in in Italy",
-//         "age": 50
-//     }, {
-//         "firstName": "Brad",
-//         "lastName": "Pid",
-//         "bio": "He was born in in Canada",
-//         "age": 55
-//     }
-// ]
+import UseDropDown from './myHooks/useDropDown';
+const sortOptions = [
+    {
+        optionName: "A-Z",
+        value: 0
+    }, {
+        optionName: "Z-A",
+        value: 1
+    }
+
+]
 const ShowUsers = () => {
     useEffect(() => {
         getUsersData();
     }, []);
+
     const getUsersData = async () => {
         try {
             const apiResponse = await fetch("https://run.mocky.io/v3/6c174c47-6fd0-4e8d-99fa-da314f4a4bcc?mocky-delay=1000ms");
@@ -68,9 +62,16 @@ const ShowUsers = () => {
         setUsersList([...newUserList]);
         setShowEditModalStatus(false);
     };
-
+    
+    const [sort, SortDropDown] = UseDropDown("select-sort-users", "sortUsers", sortOptions, 0);
+    useEffect(() => {
+        console.log(sort);
+    }, [sort]);
     return showLodaing ? <div className="loading">Loading...</div> : (
         <div>
+            <div>
+                <SortDropDown />
+            </div>
             <div className="users">
                 {
                     usersList.map((item, index) => {

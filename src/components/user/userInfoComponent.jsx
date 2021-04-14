@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
-const UserInfo = ({firstName, lastName, bio, age, onDelete, onEdit}) => {
+
+const UserInfo = ({ firstName, lastName, bio, age, onDelete, onEdit }) => {
     return (
         <div className="user-item">
             <h1>{firstName} - {lastName}</h1>
@@ -14,16 +15,16 @@ const UserInfo = ({firstName, lastName, bio, age, onDelete, onEdit}) => {
     )
 }
 UserInfo.defaultProps = {
-    firstName: "Iran", 
-    lastName: "Iranian", 
+    firstName: "Iran",
+    lastName: "Iranian",
     bio: "Describe Iran",
     age: 999,
-    onDelete: ()=> {},
-    onEdit: () => {}
+    onDelete: () => { },
+    onEdit: () => { }
 }
 UserInfo.propTypes = {
-    firstName: PropTypes.string, 
-    lastName: PropTypes.string, 
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
     bio: PropTypes.string,
     age: PropTypes.number,
     onDelete: PropTypes.func,
