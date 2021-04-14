@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import UserInfo from './userInfoComponent'
-import UseDropDown from './myHooks/useDropDown';
+import UseDropDown from '../myHooks/useDropDown';
 const sortOptions = [
     {
         optionName: "A-Z",
@@ -62,7 +62,7 @@ const ShowUsers = () => {
         setUsersList([...newUserList]);
         setShowEditModalStatus(false);
     };
-    
+
     const [sort, SortDropDown] = UseDropDown("select-sort-users", "sortUsers", sortOptions, 0);
     useEffect(() => {
         console.log(sort);
